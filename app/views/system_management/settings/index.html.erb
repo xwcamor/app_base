@@ -1,0 +1,50 @@
+<!-- Content 1 -->
+<div class="row">
+  <div class="col-12">
+    <div class="card card-lightblue" role="region" aria-labelledby="<%= t('standard.title_filter') %>">
+      <div class="card-header">
+        <div class="card-title">
+          <span id="<%= t('standard.title_filter') %>" title="<%= t('standard.title_filter') %>"><%= t('standard.title_filter') %></span>
+        </div>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="<%= t('standard.btn_collapse') %>" aria-expanded="true" aria-controls="<%= t('standard.content_filter') %>"><i class="fas fa-minus"></i></button>
+        </div>
+      </div>
+      <div class="card-body" id="<%= t('standard.content_filter') %>">
+        <%= render :partial => @main_url + "/partials/search_filters" %>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<!-- Content 2 -->
+<div class="row">
+  <div class="col-12">
+    <div class="card card-lightblue" role="region" aria-labelledby="<%= t('standard.title_result') %>">
+      <div class="card-header">
+        <div class="card-title">
+          <span id="<%= t('standard.title_result') %>" title="<%= t('standard.title_result') %>"><%= t('standard.title_result') %></span>
+          <!--  
+          <%# if @permissions[@param_model.to_s.camelize]&.include?('new') %>
+          <a class="btn bg-navy btn-sm" data-remote="true" href="<%#= @main_url %>/new" title="<%#= t('standard.btn_new') %>">
+            <i class="fas fa-plus"></i> <%#= t('standard.btn_new') %> 
+          </a>
+          <%# end %>    
+          -->   
+          <%= link_to url_for(controller: controller_name, action: action_name, format: :xlsx, q: params[:q].try(:permit!).to_h), class: 'btn bg-olive btn-sm', title: t('standard.btn_excel')  do %>
+            <i class="fas fa-file-excel"></i> <%= t('standard.btn_excel') %>  
+          <% end %>
+        </div>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="<%= t('standard.btn_collapse') %>" aria-expanded="true" aria-controls="<%= t('standard.content_result') %>"><i class="fas fa-minus"></i></button>
+        </div>        
+      </div>
+      <div class="card-body" id="<%= t('standard.content_result') %>">
+        <%= render :partial => @main_url + "/partials/table" %>
+      </div>            
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"></div>

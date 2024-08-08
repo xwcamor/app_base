@@ -1,0 +1,33 @@
+<%= form_with(
+  model:  @main_table, 
+  url:    @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url,
+  method: @main_table.persisted? ? :patch : :post, 
+  local:  false, 
+  html: { id: 'main_form',
+          autocomplete: 'off', 
+          data: { parsley_validate: true }
+        }
+  ) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('activerecord.errors.template.header', count: @main_table.errors.count) %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= dynamic_translation('resource_name') %>
+    <%= form.text_field :resource_name, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.resource_name")}" %>
+  </div>
+
+  <div class="field mt-3">
+    <%= dynamic_translation('action_name') %>
+    <%= form.text_field :action_name, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.action_name")}" %>
+  </div>
+  
+<% end %>

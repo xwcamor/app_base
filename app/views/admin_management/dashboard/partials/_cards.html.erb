@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card text-white bg-primary mb-3 card-small animate__animated animate__fadeIn">
+      <div class="card-header">Ventas de Hoy</div>
+      <div class="card-body">
+         
+        <p class="card-text display-9"><%= @sales_today.count %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-white bg-success mb-3 card-small animate__animated animate__fadeIn">
+      <div class="card-header">Ventas del Mes</div>
+      <div class="card-body">
+         
+        <p class="card-text display-9"><%= @sales_this_month.count %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-white bg-info mb-3 card-small animate__animated animate__fadeIn">
+      <div class="card-header">Ventas del Año</div>
+      <div class="card-body">
+         
+        <p class="card-text display-9"><%= @sales_this_year.count %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-white bg-danger mb-3 card-small animate__animated animate__fadeIn">
+      <div class="card-header">Ventas Anuladas</div>
+      <div class="card-body">
+         
+        <p class="card-text display-9"><%= @canceled_sales.count %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-white bg-warning mb-3 card-small animate__animated animate__fadeIn">
+      <div class="card-header">Ganancias Totales</div>
+      <div class="card-body">
+         
+        <p class="card-text display-9"><%= number_to_currency(@total_revenue, unit: "S/ ") %></p>
+      </div>
+    </div>
+  </div>
+</div>

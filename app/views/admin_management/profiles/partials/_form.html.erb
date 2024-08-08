@@ -1,0 +1,55 @@
+<%= form_with(model: @main_table, url: @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url, method: @main_table.persisted? ? :patch : :post, local: false, html: { id: 'main_form', data: { parsley_validate: true } }) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@main_table.errors.count, "error encontrado:") %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Nombre:
+    <%= form.text_field :name, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control" %>
+  </div>
+
+  <div class="field mt-3">
+    Accesos
+    <% @accesses.group_by(&:resource_name).each do |resource_name, accesses| %>
+      <div class="border p-2 mb-2">
+        <h5><%= resource_name %></h5>
+        <div class="row">
+          <% accesses.each_slice(4) do |access_group| %>
+            <div class="row mb-2">
+              <% access_group.each do |access| %>
+                <div class="col-md-3">
+                  <div class="form-check">
+                    <%= form.check_box :access_ids, { multiple: true, class: 'form-check-input' }, access.id, nil %>
+                    <%= form.label "access_ids_#{access.id}", access.full_access_name, class: 'form-check-label' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="field mt-3">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: "form-control", accept: "image/jpeg, image/jpg, image/png" %>
+  </div>
+
+  <% if @main_table.persisted? %>
+    <div class="form-check mt-3">
+      <%= form.check_box :active, class: "form-check-input", id: "activeCheck" %>
+      <label class="form-check-label" for="activeCheck">Estado</label>
+    </div>
+  <% end %> 
+  
+<% end %>

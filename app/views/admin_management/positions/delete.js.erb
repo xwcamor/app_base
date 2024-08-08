@@ -1,0 +1,18 @@
+// Delete modal content
+$('#modal').html(
+  "<%= j render partial: @main_url + '/partials/modal_div', 
+      locals: { 
+        show_save_button:   false, 
+        show_delete_button: true, 
+        modal_title: t('standard.title_delete') 
+      } 
+  %>"
+);
+
+// Display Modal
+$('#modal').modal('show');
+
+// Init Select2 y Parsley.js for new elements on modal
+$('#modal').on('shown.bs.modal', function () {
+  initializeModalComponents();
+});

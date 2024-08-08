@@ -1,0 +1,37 @@
+<% @list_array.each_with_index do |array,index| %>
+<tr id="fila-<%= array.id %>">
+  <td><%= index + 1 %></td>
+
+  <td><%= array.name %></td>  
+  
+  <td>
+    <% if array.image.attached? %>
+        <%= image_tag array.image, class: "small-img"  %>
+    <% else %>
+      <p>No hay imagen adjunta</p>
+    <% end %>
+  </td>
+
+  <td><%= array.active_status %></td>
+
+  <td>
+    <% if current_account.has_permission?('show', 'Profile') %>
+      <a class="btn bg-info btn-sm" data-remote="true" href="<%= @main_url %>/<%= array.id %>" title="Mostrar">
+        <i class="fas fa-eye"></i>  
+      </a>
+    <% end %>
+
+    <% if current_account.has_permission?('edit', 'Profile') %>
+      <a class="btn btn-warning btn-sm text-white" data-remote="true" href="<%= @main_url %>/<%= array.id %>/edit">
+        <i class="fas fa-pencil-alt"></i>  
+      </a>
+    <% end %>
+
+    <% if current_account.has_permission?('delete', 'Profile') %>
+      <a class="btn bg-danger btn-sm" data-remote="true" href="<%= @main_url %>/<%= array.id %>/delete">
+        <i class="fas fa-trash"></i>  
+      </a>
+    <% end %>
+  </td>
+</tr>
+<% end %>

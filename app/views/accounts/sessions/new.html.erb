@@ -1,0 +1,103 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="card shadow-sm">
+        <div class="card-header text-center bg-warning text-white">
+          <h3><%= t('.sign_in', default: 'Login') %></h3>
+        </div>
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <%= image_tag asset_path('logo.jpg'), alt: 'Pollería', class: 'img-fluid' %>
+          </div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="form-group">
+              <%= f.label :email, t('.email', default: 'Usuario'), class: "form-label" %>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: t('.enter_email', default: 'Ingresa Usuario'), required: true %>
+              </div>
+              <div class="invalid-feedback">
+                <%= t('.enter_email', default: 'Ingresa usuario.') %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password, t('.password', default: 'Contraseña'), class: "form-label" %>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: t('.enter_password', default: 'Ingresa Contraseña'), required: true %>
+              </div>
+              <div class="invalid-feedback">
+                <%= t('.enter_password', default: 'Ingresa Contraseña.') %>
+              </div>
+            </div>
+
+            <div class="form-group form-check">
+              <%= f.check_box :remember_me, class: "form-check-input", id: "remember_me" %>
+              <%= f.label :remember_me, t('.remember_me', default: 'Recordarme'), class: "form-check-label", for: "remember_me" %>
+            </div>
+
+            <div class="d-flex justify-content-between pt-2">
+              <%= f.submit t('.log_in', default: 'Ingresar'), class: "btn btn-primary" %>
+              <%= link_to t('.forgot_password', default: 'Olvidaste la contraseña?'), new_password_path(resource_name), class: "btn btn-link" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+
+<style>
+  body {
+    background: url(<%= asset_path('background.jpg') %>) no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-header {
+    font-size: 1.5rem;
+  }
+
+  .form-label {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 767.98px) {
+    .container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+</style>

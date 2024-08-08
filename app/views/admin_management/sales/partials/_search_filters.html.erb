@@ -1,0 +1,41 @@
+<%= search_form_for @query, url: @main_url.to_s + "/search",:html=>{:autocomplete=>"off", method: 'post', remote: false }  do |f|%> 
+
+<div class="row justify-content-center">
+  <div class="col-lg-3">
+  	<div class="form-group mb-2">
+  	  <%= dynamic_translation('username') %>
+  	  <%= f.text_field :username_cont, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.username")}" %>
+  	</div>
+  </div>
+
+  <div class="col-lg-3">
+    <div class="form-group mb-2">
+      <%= dynamic_translation('email') %>
+      <%= f.text_field :email_cont, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.email")}" %>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div class="form-group mb-2">
+      <%= dynamic_translation('profile_id') %>
+      <%= f.select :profile_id_eq, @list_profiles.collect { |a| [a.name, a.id] }, { include_blank: t('standard.all') }, class: "form-control" %>
+    </div>
+  </div>    
+
+  <div class="col-lg-3">
+    <div class="form-group mb-2">
+      <%= dynamic_translation('active') %>
+      <%= f.select :active_eq, [[t('standard.all'), nil], [t('standard.active'), true], [t('standard.blocked'), false]], { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-lg-12 text-center pt-2">
+    <%= f.button :submit, class: "btn bg-navy", title: t('standard.btn_search') do %>
+      <i class="fas fa-search"></i> <%= t('standard.btn_search') %>
+    <% end %>
+    <a href="<%= @main_url %>" class="btn bg-secondary" title="<%= t('standard.btn_clear') %>"><i class="fas fa-brush"></i> <%= t('standard.btn_clear') %></a>
+  </div> 
+
+</div>
+
+<% end %>

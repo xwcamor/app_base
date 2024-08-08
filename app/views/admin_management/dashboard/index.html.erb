@@ -1,0 +1,46 @@
+<script>
+  function loadScript(url, callback) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+
+    script.onload = function() {
+      callback();
+    };
+
+    document.head.appendChild(script);
+  }
+</script>
+
+<%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' %>
+
+<!-- TABLA -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <b>Productividad</b>
+      </div>
+      <div class="card-body">
+        <%= render :partial => @main_url + "/partials/cards" %>
+      </div>            
+    </div>
+  </div>
+ 
+  <div class="col-lg-6">
+    <%= render :partial => @main_url + "/partials/graph1" %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <%= render :partial => @main_url + "/partials/graph2" %>
+  </div>
+ 
+  <div class="col-lg-6">
+    <%= render :partial => @main_url + "/partials/graph3" %>
+  </div>
+</div>
+
+<%= render :partial => @main_url + "/partials/script_graphs" %>

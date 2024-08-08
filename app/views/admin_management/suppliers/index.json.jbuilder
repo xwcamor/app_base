@@ -1,0 +1,1 @@
+json.array! @list_array, partial: @main_url + "/data", as: :array

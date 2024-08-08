@@ -1,0 +1,121 @@
+<script>
+  var mostSoldProductsChart, paymentsChart, salesChart;
+
+  function initializeCharts() {
+    var mostSoldProductsElem = document.getElementById('mostSoldProductsChart');
+    var paymentsElem = document.getElementById('paymentsChart');
+    var salesElem = document.getElementById('salesChart');
+
+    // Destroy existing charts if they exist
+    if (mostSoldProductsChart) {
+      mostSoldProductsChart.destroy();
+    }
+    if (paymentsChart) {
+      paymentsChart.destroy();
+    }
+    if (salesChart) {
+      salesChart.destroy();
+    }
+
+    if (mostSoldProductsElem) {
+      var mostSoldProductsCtx = mostSoldProductsElem.getContext('2d');
+      mostSoldProductsChart = new Chart(mostSoldProductsCtx, {
+        type: 'bar',
+        data: {
+          labels: <%= @most_sold_products.keys.to_json.html_safe %>,
+          datasets: [{
+            label: 'Productos más vendidos',
+            data: <%= @most_sold_products.values.to_json.html_safe %>,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          animation: {
+            duration: 1000,
+            easing: 'easeInOutBounce'
+          }
+        }
+      });
+    }
+
+    if (paymentsElem) {
+      var paymentsCtx = paymentsElem.getContext('2d');
+      paymentsChart = new Chart(paymentsCtx, {
+        type: 'pie',
+        data: {
+          labels: ['Boleta', 'Factura'],
+          datasets: [{
+            label: 'Tipo de Pago',
+            data: [<%= @payments_by_type[1] %>, <%= @payments_by_type[2] %>],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          animation: {
+            duration: 1000,
+            easing: 'easeInOutBounce'
+          }
+        }
+      });
+    }
+
+    if (salesElem) {
+      var salesCtx = salesElem.getContext('2d');
+      salesChart = new Chart(salesCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Hoy', 'Mes', 'Año'],
+          datasets: [{
+            label: 'Ventas',
+            data: [<%= @sales_today.count %>, <%= @sales_this_month.count %>, <%= @sales_this_year.count %>],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          animation: {
+            duration: 1000,
+            easing: 'easeInOutBounce'
+          }
+        }
+      });
+    }
+  }
+
+  function loadScript(url, callback) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onload = function() {
+      callback();
+    };
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    loadScript('https://cdn.jsdelivr.net/npm/chart.js', initializeCharts);
+  });
+</script>

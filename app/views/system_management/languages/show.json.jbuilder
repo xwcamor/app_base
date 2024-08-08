@@ -1,0 +1,1 @@
+json.partial! @main_url + "/data", array: @main_table

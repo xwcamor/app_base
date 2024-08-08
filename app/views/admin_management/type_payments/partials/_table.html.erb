@@ -1,0 +1,25 @@
+<!-- Main Table -->
+<div class="row justify-content-center">
+  <div class="col-12">
+    <table class="table table-bordered table-hover" id="main-table">
+      <thead>
+        <%= render partial: @main_url + '/partials/table_head', locals: { list_array: @list_array } %>  
+      </thead>
+      <tbody id="body-list">  
+        <%= render partial: @main_url + '/partials/table_body', locals: { list_array: @list_array } %>  
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="row justify-content-center">
+  <div class="col-12 text-center">
+    <p><%= t('standard.pagination_text') %>: <%= @list_array.total_count %></p>
+    <div class="pagination justify-content-center">
+      <%= paginate @list_array %>
+    </div>
+  </div>
+</div>
+
+<%= render :partial =>"layouts/datatable_plugin" %>

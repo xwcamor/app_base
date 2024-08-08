@@ -1,0 +1,66 @@
+it:
+  # Valori Standard
+  standard:
+        exit_btn:        "Esci"
+        exit_confirm:    "Sei sicuro di voler uscire dall'applicazione?"
+        lang_btn:        "Lingua"
+        btn_collapse:    "Mostra / Nascondi Contenuto"
+        btn_search:      "Cerca"
+        btn_clear:       "Cancella Filtri"
+        input_required:  "Inserisci valore per"
+        btn_new:         "Aggiungi Registrazione"
+        btn_excel:       "Esporta"
+        btn_show:        "Mostra"
+        btn_edit:        "Modifica"
+        btn_delete:      "Elimina"
+        btn_close:       "Chiudi"
+        btn_save:        "Salva"
+        btn_cancel:      "Annulla"
+        title_new:       "Nuovo"
+        title_show:      "Mostra"
+        title_edit:      "Modifica"
+        title_delete:    "Elimina"
+        title_cancel:    "Annulla"
+        msg_success:     "Successo"
+        msg_error:       "Errore"
+        msg_info:        "Informazione"
+        reason_delete:   "Motivo dell'eliminazione"
+        reason_cancel:   "Motivo dell'annullamento"
+        title_filter:    "Filtri di Ricerca"
+        content_filter:  "Contenuto dei Filtri di Ricerca"
+        title_result:    "Dati dei Risultati"
+        content_result:  "Contenuto dei Dati dei Risultati"
+        not_found:       "Nessun dato trovato"
+        pagination_text: "Totale risultati:"
+        index_actions:   "Azioni"
+        confirmation:    "Sei sicuro?"
+        confirm_delete:  "Sei sicuro di voler eliminare?"
+        all:             "Tutti"
+  # Valori per le Posizioni
+  positions:
+        # Titoli Principali
+        title_plural:    "Posizioni"
+        title_singular:  "Posizione"
+        # COLONNE
+        id:           "#"
+        name:         "Nome"
+        image:        "Immagine"
+        active:       "Stato"
+        # STRINGHE SPECIALI
+        active_status:
+          active:     "Attivo"
+          blocked:    "Bloccato"
+     
+  # Valori per ActiveRecord
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 Problema trovato"
+          other: "%{count} Problemi trovati"
+        body:    "Ci sono stati problemi con i seguenti campi:"
+      models:
+        position:
+          attributes:
+            name:
+              taken: "Il nome è già in uso."

@@ -1,0 +1,59 @@
+<% @list_array.each_with_index do |array, index| %>
+<tr id="fila-<%= array.id %>">
+  <td><%= index + 1 %></td>
+  
+  <td><%= array.created_at.strftime("%d-%m-%Y %I:%M:%S %p") rescue "" %></td>
+  
+  <td>
+    <%= array.customer.name rescue "" %>
+  </td>
+  
+  <td>
+    <%= array.employee.name rescue "" %>
+  </td>
+  
+  <td>
+    <%= array.type_payment.name rescue "" %>
+  </td>
+  
+  <td>
+    <%= array.report_payment.name rescue "" %>
+  </td>
+  
+  <td><%= array.sub_total %></td>
+  <td><%= array.discount_total %></td>
+  <td><%= array.total_payment %></td>
+  
+  <td><%= array.account.user.full_name rescue "" %></td>
+  
+  <td><%= array.active_status %></td>
+
+  <td>
+    <% if current_account.has_permission?('show', 'Sale') %>
+    <a class="btn bg-info btn-sm" data-remote="true" href="<%= @main_url %>/<%= array.id %>" title="Mostrar">
+      <i class="fas fa-eye"></i>  
+    </a>
+    <% end %>
+    
+    <% if current_account.has_permission?('edit', 'Sale') %>
+    <a class="btn btn-warning btn-sm text-white" data-remote="true" href="<%= @main_url %>/<%= array.id %>/edit" title="Editar">
+      <i class="fas fa-pencil-alt"></i>  
+    </a>
+    <% end %>
+    
+    <% if current_account.has_permission?('edit', 'Sale') %>
+    <% if array.active == true %>
+    <a class="btn btn-dark btn-sm text-white" data-remote="true" href="<%= @main_url %>/<%= array.id %>/cancel_sale" title="Anular">
+      <i class="fas fa-ban"></i>  
+    </a>
+    <% end %>
+    <% end %>
+    
+    <% if current_account.has_permission?('delete', 'Sale') %> 
+    <a class="btn bg-danger btn-sm" data-remote="true"  href="<%= @main_url %>/<%= array.id %>/delete" title="Eliminar">
+      <i class="fas fa-trash"></i>  
+    </a>
+    <% end %>
+  </td>
+</tr>
+<% end %>

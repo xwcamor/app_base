@@ -1,0 +1,65 @@
+<%= form_with(
+  model:  @main_table, 
+  url:    @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url,
+  method: @main_table.persisted? ? :patch : :post, 
+  local:  false, 
+  html: { id: 'main_form',
+          autocomplete: 'off', 
+          data: { parsley_validate: true }
+        }
+  ) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('activerecord.errors.template.header', count: @main_table.errors.count) %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= dynamic_translation('name') %>
+    <%= form.text_field :name, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.name")}" %>
+  </div>
+
+  <div class="field mt-3">
+    <%= dynamic_translation('description') %>
+    <%= form.text_field :description, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.description")}" %>
+  </div>  
+  
+  <%= dynamic_translation('accesses') %>
+  <div class="row mt-3">
+    
+    <% @accesses.group_by(&:resource_name).each do |resource_name, accesses| %>
+      <div class="col-lg-3 border p-2 mb-2">
+        <h6><%= resource_name %></h6>
+        <div class="row">
+          <% accesses.each_slice(4) do |access_group| %>
+            <div class="row mb-2">
+              <% access_group.each do |access| %>
+                <div class="col-md-3">
+                  <div class="form-check">
+                    <%= form.check_box :access_ids, { multiple: true, class: 'form-check-input' }, access.id, nil %>
+                    <%= form.label "access_ids_#{access.id}", access.action_name, class: 'form-check-label' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <% if @main_table.persisted? %>
+  <div class="form-check form-switch form-switch-custom form-switch-success form-check-inline mt-3">
+    <%= form.check_box :active, class: "form-check-input" %>
+    <label class="form-check-label"><%= dynamic_translation('active') %></label>
+  </div>
+  <% end %> 
+  
+<% end %>

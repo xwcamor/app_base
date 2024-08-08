@@ -1,0 +1,22 @@
+<%= form_with(
+  model:  @main_table, 
+  url:    "#{@main_url}/#{@main_table.id}",
+  method: :delete,
+  local:  false, 
+  html: { id: 'main_form', 
+  	      autocomplete: 'off', 
+  	      data: { parsley_validate: true }
+  	    }
+  ) do |form| %>
+
+  <div class="field">
+    <%= dynamic_translation('resource_name') %>
+    <input class="form-control" disabled value="<%= @main_table.resource_name %>" >
+  </div>
+
+  <div class="field mt-3">
+    <%= t('standard.reason_delete') %>
+    <%= form.text_area :deleted_description, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control" , rows: 3 %>
+  </div>   
+  
+<% end %>

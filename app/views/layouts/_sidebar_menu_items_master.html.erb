@@ -1,0 +1,56 @@
+<li class="nav-header">Accesos al sistema</li>
+
+<% if current_account.has_permission?('index', 'Profile') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(system_management_profiles_path, :active => :inclusive) %>" href="/system_management/profiles" title="<%= t('profiles.title_plural') %>">
+    <i class="nav-icon fas fa-user-circle"></i>
+    <p><%= t('profiles.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Access') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(system_management_accesses_path, :active => :inclusive) %>" href="/system_management/accesses" title="<%= t('accesses.title_plural') %>">
+    <i class="nav-icon fas fa-list"></i>
+    <p><%= t('accesses.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+
+<% if current_account.has_permission?('index', 'Account') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(system_management_accounts_path, :active => :inclusive) %>" href="/system_management/accounts" title="<%= t('accounts.title_plural') %>">
+    <i class="nav-icon fas fa-user-check"></i>
+    <p><%= t('accounts.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Setting') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(system_management_settings_path, :active => :inclusive) %>" href="/system_management/settings" title="<%= t('settings.title_plural') %>">
+    <i class="nav-icon fas fa-tools"></i>
+    <p><%= t('settings.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Language') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(system_management_languages_path, :active => :inclusive) %>" href="/system_management/languages" title="<%= t('languages.title_plural') %>">
+    <i class="nav-icon fas fa-globe"></i>
+    <p><%= t('languages.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Country') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(system_management_countries_path, :active => :inclusive) %>" href="/system_management/countries" title="<%= t('countries.title_plural') %>">
+    <i class="nav-icon fas fa-flag"></i>
+    <p><%= t('countries.title_plural') %></p>
+  </a>
+</li>
+<% end %>

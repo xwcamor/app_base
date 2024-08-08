@@ -1,0 +1,166 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ *= require_self
+ */
+
+
+
+/*.modal-xl {
+  max-width: 1920px !important;
+}*/
+
+.modal-fullscreen {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.modal-fullscreen .modal-dialog {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.modal-fullscreen .modal-content {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.modal-fullscreen .modal-header,
+.modal-fullscreen .modal-footer {
+  flex-shrink: 0 !important;
+  position: sticky !important;
+  top: 0 !important; /* For header */
+  bottom: 0 !important; /* For footer */
+  z-index: 10 !important; /* Ensure they stay above modal body content */
+  background-color: #fff !important; /* Optional: Background color to match modal content */
+}
+
+.modal-fullscreen .modal-body {
+  overflow-y: auto !important;
+  flex-grow: 1 !important;
+}
+
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 3rem; /* Ajusta el valor según el espacio que desees */
+}
+
+
+
+/* Colores de fondo personalizados */
+.bg-primary {
+  background-color: #0056b3 !important; /* Azul más oscuro */
+}
+ 
+ 
+
+.bg-warning {
+  background-color: #f57c00 !important; /* Amarillo más oscuro */
+}
+
+/* Colores de botones personalizados */
+.btn-primary {
+  background-color: #0056b3 !important; /* Azul más oscuro */
+  border-color: #0056b3 !important;
+}
+ 
+
+ 
+ 
+
+.btn-warning {
+  background-color: #f57c00 !important; /* Amarillo más oscuro */
+  border-color: #f57c00 !important;
+}
+
+.btn-primary,  .btn-warning {
+  color: #fff !important; /* Blanco para buen contraste */
+}
+
+.btn-primary:hover {
+  background-color: #004494 !important; /* Azul aún más oscuro en hover */
+}
+ 
+.btn-warning:hover {
+  background-color: #e64a19 !important; /* Amarillo más oscuro en hover */
+}
+
+
+ 
+ .select2-container {
+  width: 100% !important;
+}
+
+.select2-selection__rendered {
+  line-height: 2.5 !important; /* Ajusta la altura según tus necesidades */
+}
+
+.select2-selection {
+  height: 2.5em !important; /* Ajusta la altura según tus necesidades */
+}
+
+.select2-selection__arrow {
+  height: 2.5em !important; /* Ajusta la altura según tus necesidades */
+}
+
+
+
+/* Estilo para los campos de formulario con errores */
+.parsley-error {
+  border-color: red !important;
+  background-color: #fdd !important;
+}
+
+/* Estilo para los campos de formulario válidos */
+.parsley-success {
+  border-color: green !important;
+  background-color: #dfd !important;
+}
+
+/* Estilo para los mensajes de error de Parsley.js */
+.parsley-errors-list {
+  color: red;
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.card-small {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+
+.dataTable img.small-img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover !important;
+ 
+}
+
+
+  #paymentsChart {
+    width: 300px !important;
+    height: 200px !important;
+  }

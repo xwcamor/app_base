@@ -1,0 +1,19 @@
+<div class="field">
+  <%= dynamic_translation('name') %>
+  <input class="form-control" disabled value="<%= @main_table.name %>" >
+</div>
+ 
+<div class="field mt-3">
+  <%= dynamic_translation('locale') %>
+  <input class="form-control" disabled value="<%= @main_table.locale %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('flag') %>
+  <input class="form-control" disabled value="<%= @main_table.flag %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('active') %>
+  <input class="form-control" disabled value="<%= @main_table.active_status_text %>" >
+</div>

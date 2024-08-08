@@ -1,0 +1,55 @@
+<%= form_with(
+  model:  @main_table, 
+  url:    @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url,
+  method: @main_table.persisted? ? :patch : :post, 
+  local:  false, 
+  html: { id: 'main_form',
+          autocomplete: 'off', 
+          data: { parsley_validate: true }
+        }
+  ) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('activerecord.errors.template.header', count: @main_table.errors.count) %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= dynamic_translation('name') %>
+    <%= form.text_field :name, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.name")}" %>
+  </div>
+
+  <div class="field mt-3">
+    <%= dynamic_translation('currency') %>
+    <%= form.text_field :currency, required: true, data: { parsley_required: "true", parsley_minlength: "1" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.currency")}" %>
+  </div>
+
+  <div class="field mt-3">
+    <%= dynamic_translation('time_zone') %>
+    <%= form.text_field :time_zone, required: true, data: { parsley_required: "true", parsley_minlength: "1" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.time_zone")}" %>
+  </div>  
+
+  <div class="field mt-3">
+    <%= dynamic_translation('region') %>
+    <%= form.text_field :region, required: true, data: { parsley_required: "true", parsley_minlength: "1" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.region")}" %>
+  </div> 
+
+  <div class="field mt-3">
+    <%= dynamic_translation('language_id') %>
+    <%= form.select :language_id, @list_languages.collect { |a| [a.name, a.id] }, { include_blank: t('standard.select_option') }, { required: true, data: { parsley_required: "true" }, class: "form-control"} %>
+  </div>
+
+  <% if @main_table.persisted? %>
+  <div class="form-check form-switch form-switch-custom form-switch-success form-check-inline mt-3">
+    <%= form.check_box :active, class: "form-check-input" %>
+    <label class="form-check-label"><%= dynamic_translation('active') %></label>
+  </div>
+  <% end %> 
+  
+<% end %>

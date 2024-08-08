@@ -1,0 +1,83 @@
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_dashboard_index_path, :active => :inclusive) %>" href="/admin_management/dashboard">
+    <i class="nav-icon fas fa-tachometer-alt"></i>
+    <p>Dashboard</p>
+  </a>
+</li>
+
+<% if current_account.has_permission?('index', 'Product') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_products_path, :active => :inclusive) %>" href="/admin_management/products" title="<%= t('products.title_plural') %>">
+    <i class="nav-icon fas fa-box"></i>
+    <p><%= t('products.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Employee') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_employees_path, :active => :inclusive) %>" href="/admin_management/employees" title="<%= t('employees.title_plural') %>">
+    <i class="nav-icon fas fa-users"></i>
+    <p><%= t('employees.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Position') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_positions_path, :active => :inclusive) %>" href="/admin_management/positions" title="<%= t('positions.title_plural') %>">
+    <i class="nav-icon fas fa-briefcase"></i>
+    <p><%= t('positions.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'TypePayment') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_type_payments_path, :active => :inclusive) %>" href="/admin_management/type_payments" title="<%= t('type_payments.title_plural') %>">
+    <i class="nav-icon fas fa-credit-card"></i>
+    <p><%= t('type_payments.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'ReportPayment') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_report_payments_path, :active => :inclusive) %>" href="/admin_management/report_payments" title="<%= t('report_payments.title_plural') %>">
+    <i class="nav-icon fas fa-file-alt"></i>
+    <p><%= t('report_payments.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Customer') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_customers_path, :active => :inclusive) %>" href="/admin_management/customers" title="<%= t('customers.title_plural') %>">
+    <i class="nav-icon fas fa-user-friends"></i>
+    <p><%= t('customers.title_plural') %></p>
+  </a>
+</li>
+<% end %> 
+ 
+<% if current_account.has_permission?('index', 'Supplier') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_suppliers_path, :active => :inclusive) %>" href="/admin_management/suppliers" title="<%= t('suppliers.title_plural') %>">
+    <i class="nav-icon fas fa-building"></i>
+    <p><%= t('suppliers.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+<% if current_account.has_permission?('index', 'Sale') %>
+<li class="nav-item">
+  <a class="nav-link <%= active_link_to_class(admin_management_sales_path, :active => :inclusive) %>" href="/admin_management/sales" title="<%= t('suppliers.title_plural') %>">
+    <i class="nav-icon fa fa-store"></i>
+    <p><%= t('sales.title_plural') %></p>
+  </a>
+</li>
+<% end %>
+
+
+<% if current_account.id == 1 %>
+  <%= render 'layouts/sidebar_menu_items_master' %>
+<% end %>

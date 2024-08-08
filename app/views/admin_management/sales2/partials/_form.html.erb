@@ -1,0 +1,67 @@
+<%= form_with(model: @main_table, url: @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url, method: @main_table.persisted? ? :patch : :post, local: false, html: { id: 'main_form', data: { parsley_validate: true } }) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@main_table.errors.count, "error encontrado:") %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        Cliente 
+        <%= form.collection_select :customer_id, @list_customers, :id, :name, {}, { class: "form-control product-select" } %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        Empleado 
+        <%= form.collection_select :employee_id, @list_employees, :id, :name, {}, { class: "form-control" } %>
+        <%= form.hidden_field :account_id , value: current_account.id %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        Tipo de Pago 
+        <%= form.collection_select :type_payment_id, @list_type_payments, :id, :name, {}, { class: "form-control" } %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        Reporte de Pago
+        <%= form.collection_select :report_payment_id, @list_report_payments, :id, :name, {}, { class: "form-control" } %>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Producto
+          <%= link_to_add_association form, :sale_details, class: "btn btn-dark btn-xs", data: { association_insertion_node: '#product-fields', association_insertion_method: :append } do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        </th>
+        <th>Cantidad</th>
+        <th>Precio (S/.)</th>
+        <th>Descuento (S/.)</th>
+        <th>Sub Total (S/.)</th>  
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="product-fields">
+      <%= form.fields_for :sale_details do |detail_form| %>
+        <%= render 'sale_detail_fields', f: detail_form %>
+      <% end %>
+    </tbody>
+    <tr><td colspan="4" class="text-right"><b>Total (S/.)</b></td><td><input id="total-amount" class="form-control" disabled></td></tr>
+  </table> 
+  
+<% end %>

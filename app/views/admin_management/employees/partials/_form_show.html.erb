@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-6">
+    <%= dynamic_translation('name') %>
+    <input class="form-control" disabled value="<%= @main_table.name %>"  >
+  </div>   
+  <div class="col-lg-6">
+    <%= dynamic_translation('position_id') %>
+    <input class="form-control" disabled value="<%= @main_table.position.name %>"  >
+  </div> 
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('active') %>
+  <input class="form-control" disabled value="<%= @main_table.active_status_text %>"  >
+</div>

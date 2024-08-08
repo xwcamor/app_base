@@ -1,0 +1,29 @@
+wb = xlsx_package.workbook
+wb.styles do |s|
+  title_style = s.add_style(
+    b: true,
+    bg_color: "000000",
+    fg_color: "FFFFFF",
+    border: { style: :thin, color: "000000" },
+    alignment: { horizontal: :center }
+  )
+
+  content_style = s.add_style(
+    border: { style: :thin, color: "000000" },
+    alignment: { horizontal: :left }
+  )
+  
+  wb.add_worksheet(name: I18n.t('accounts.title_plural')) do |sheet|
+    sheet.add_row [ 
+                     I18n.t('accounts.username'),
+                     I18n.t('accounts.active')
+                  ], style: title_style
+
+    @list_array.each do |array|
+      sheet.add_row [ 
+                       array.name, 
+                       array.active_status_text
+                    ], style: content_style
+    end
+  end
+end

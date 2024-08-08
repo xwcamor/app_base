@@ -1,0 +1,23 @@
+<div class="field">
+  <%= dynamic_translation('name') %>
+  <input class="form-control" disabled value="<%= @main_table.name %>" >
+</div>
+ 
+<div class="field mt-3">
+  <%= dynamic_translation('body_config') %>
+  <input class="form-control" disabled value="<%= @main_table.body_config %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('logo') %>
+  <% if @main_table.logo.present? %>
+    <%= image_tag @main_table.logo_url, class: "img-fluid" %>
+  <% else %>
+    <p><%= t('standard.not_found') %></p>
+  <% end %>  
+</div> 
+
+<div class="field mt-3">
+  <%= dynamic_translation('active') %>
+  <input class="form-control" disabled value="<%= @main_table.active_status_text %>" >
+</div>

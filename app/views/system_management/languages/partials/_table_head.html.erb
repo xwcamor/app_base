@@ -1,0 +1,15 @@
+<tr>
+
+  <th><%= sort_link(@query, :name, dynamic_translation('id'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :name, dynamic_translation('name'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :locale, dynamic_translation('locale'), { class: "text-dark" }) %></th>
+  
+  <th><%= sort_link(@query, :flag, dynamic_translation('flag'), { class: "text-dark" }) %></th>
+
+  <th><%= sort_link(@query, :active, dynamic_translation('active'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :active, t('standard.index_actions'), { class: "text-dark" }) %></th>
+
+</tr>

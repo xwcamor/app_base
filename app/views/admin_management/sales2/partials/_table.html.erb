@@ -1,0 +1,23 @@
+<table class="table table-bordered table-hover" id="main-table">
+  <thead>
+    <tr>
+      <th>Nº</th>
+      <th>Fecha</th>
+      <th>Cliente</th>
+      <th>Empleado</th>
+      <th>T.Pago</th>
+      <th>T.Reporte</th>
+      <th>Sub Total (S/.)</th>   
+      <th>Descuento Tota (S/.)l</th>   
+      <th>Pago Total (S/.)</th>    
+      <th>Usuario</th>    
+      <th>Estado</th>    
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="body-list">
+    <%= render partial: @main_url + '/partials/table_body', locals: { list_array: @list_array } %>
+  </tbody> 
+</table>
+
+<%= render :partial =>"layouts/datatable_plugin" %>

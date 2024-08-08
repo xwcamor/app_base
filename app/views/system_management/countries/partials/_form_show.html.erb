@@ -1,0 +1,29 @@
+<div class="field">
+  <%= dynamic_translation('name') %>
+  <input class="form-control" disabled value="<%= @main_table.name %>" >
+</div>
+ 
+<div class="field mt-3">
+  <%= dynamic_translation('currency') %>
+  <input class="form-control" disabled value="<%= @main_table.currency %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('time_zone') %>
+  <input class="form-control" disabled value="<%= @main_table.time_zone %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('region') %>
+  <input class="form-control" disabled value="<%= @main_table.region %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('country_id') %>
+  <input class="form-control" disabled value="<%= @main_table.language.name %>" >
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('active') %>
+  <input class="form-control" disabled value="<%= @main_table.active_status_text %>" >
+</div>

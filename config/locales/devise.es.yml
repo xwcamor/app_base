@@ -1,0 +1,4 @@
+es:
+  devise:
+    failure:
+      deleted_account: "Tu cuenta ha sido eliminada."

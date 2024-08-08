@@ -1,0 +1,29 @@
+<%= form_with(model: @main_table, url: @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url, method: @main_table.persisted? ? :patch : :post, local: false, html: { id: 'main_form', data: { parsley_validate: true } }) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@main_table.errors.count, "error encontrado:") %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Nombre de la APP:
+    <%= form.text_field :app_system_name, required: true, data: { parsley_required: "true", parsley_minlength: "5" }, class: "form-control" %>
+  </div>
+ 
+  <div class="field mt-3">
+    Body Config:
+    <%= form.text_area :app_system_body_config, required: true, data: { parsley_required: "true", parsley_minlength: "5" }, class: "form-control" %>
+  </div>
+
+  <div class="field mt-3">
+    Imagen:
+    <%= form.file_field :app_system_logo, class: "form-control", accept: "image/jpeg, image/jpg, image/png" %>
+  </div>
+ 
+<% end %>

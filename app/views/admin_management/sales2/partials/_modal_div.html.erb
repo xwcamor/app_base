@@ -1,0 +1,107 @@
+<div class="modal fade" id="main_modal" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= @action_title%> <%= @title_modal %></h5>
+        <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <%= render :partial => @main_url + "/partials/" + @main_form, locals: { main_table: @main_table } %>
+      </div>
+      <div class="modal-footer">
+        <% if show_save_button %>
+          <%= button_tag(type: 'submit', class: "btn bg-olive", form: 'main_form') do %>
+            <i class="fas fa-save"></i> Guardar
+          <% end %>
+        <% end %>
+
+        <% if show_delete_button %>
+          <%= button_tag(type: 'submit', class: "btn bg-danger", form: 'main_form') do %>
+            <i class="fas fa-trash"></i> Eliminar
+          <% end %>
+        <% end %>
+
+        <% if show_cancel_button %>
+          <%= button_tag(type: 'submit', class: "btn bg-danger", form: 'main_form') do %>
+            <i class="fas fa-ban"></i> Anular
+          <% end %>
+        <% end %>        
+
+        <%= link_to "", class: "btn btn-secondary btn-close-form", data: { bs_dismiss: "modal" } do %>
+          <i class="fas fa-times"></i> Cerrar
+        <% end %>  
+      </div>         
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateUnitPriceAndTotalPrice(field) {
+    const productSelect = $(field).find('.product-select');
+    const quantityField = $(field).find('.quantity-field');
+    const discountField = $(field).find('.discount-field');
+    const unitPriceInput = $(field).find('.unit-price');
+    const totalPriceInput = $(field).find('.total-price');
+
+    const selectedOption = productSelect.find('option:selected');
+    const unitPrice = parseFloat(selectedOption.data('price')) || 0;
+    const quantity = parseFloat(quantityField.val()) || 0;
+    const discount = parseFloat(discountField.val()) || 0;
+
+    const totalPrice = (unitPrice * quantity) - discount;
+
+    unitPriceInput.val(unitPrice.toFixed(2));
+    totalPriceInput.val(totalPrice.toFixed(2));
+  }
+
+  function updateTotal() {
+    let total = 0;
+    $(".nested-fields").each(function() {
+      const totalPriceInput = $(this).find('.total-price');
+      total += parseFloat(totalPriceInput.val()) || 0;
+    });
+    $("#total-amount").val(total.toFixed(2));
+  }
+
+  function attachEventsToField(field) {
+    const productSelect = $(field).find('.product-select');
+    const quantityField = $(field).find('.quantity-field');
+    const discountField = $(field).find('.discount-field');
+
+    productSelect.on('change', function() {
+      updateUnitPriceAndTotalPrice(field);
+      updateTotal();
+    });
+
+    quantityField.on('input', function() {
+      updateUnitPriceAndTotalPrice(field);
+      updateTotal();
+    });
+
+    discountField.on('input', function() {
+      updateUnitPriceAndTotalPrice(field);
+      updateTotal();
+    });
+
+    // Inicializar Select2 para los nuevos selects
+    productSelect.select2({
+      dropdownParent: $('#main_modal')
+    });
+  }
+
+  // Attach events to existing fields
+  $(".nested-fields").each(function() {
+    attachEventsToField(this);
+    updateUnitPriceAndTotalPrice(this);
+  });
+
+  // Attach events to new fields added by Cocoon
+  $(document).on('cocoon:after-insert', function(e, insertedItem) {
+    attachEventsToField(insertedItem);
+    updateUnitPriceAndTotalPrice(insertedItem);
+    updateTotal();
+  });
+
+  updateTotal();
+</script>
+

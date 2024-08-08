@@ -1,0 +1,23 @@
+<!-- Content 1 -->
+<div class="row">
+  <div class="col-12">
+    <div class="card card-secondary">
+      <div class="card-header">
+        <div class="card-title">
+          Listado de <%= @title_index %>
+          <% if current_account.has_permission?('new', 'Sale') %>
+          <a class="btn btn-primary btn-sm" data-remote="true" href="<%= @main_url %>/new" style="display: none">
+            <i class="fas fa-plus"></i> Nuevo <%= @title_modal %>
+          </a>
+        <% end %>       
+        </div>
+      </div>
+      <div class="card-body">
+        <%= render :partial => @main_url + "/partials/table" %>
+      </div>            
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"></div>

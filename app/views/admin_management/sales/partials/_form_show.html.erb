@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-4">
+    <%= dynamic_translation('username') %>
+    <input class="form-control" disabled value="<%= @main_table.username %>"  >
+  </div>
+  <div class="col-lg-4">
+    <%= dynamic_translation('email') %>
+    <input class="form-control" disabled value="<%= @main_table.email %>"  >
+  </div>
+  <% if !@main_table.new_record? %> <!--Hide on edit -->
+  <div class="col-lg-4">
+    <%= dynamic_translation('password') %>
+    <input class="form-control" disabled value="<%= @main_table.real_password %>"  >
+  </div>
+  <% end %>
+</div>
+ 
+<div class="row mt-3">
+  <div class="col-lg-4">
+    <%= dynamic_translation('profile_id') %>
+    <input class="form-control" disabled value="<%= @main_table.profile.name %>"  >
+  </div>
+  <div class="col-lg-4">
+    <%= dynamic_translation('country_id') %>
+    <input class="form-control" disabled value="<%= @main_table.country.name %>"  >
+  </div>
+  <div class="col-lg-4">
+    <%= dynamic_translation('time_zone') %>
+    <input class="form-control" disabled value="<%= @main_table.time_zone %>"  >
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-lg-4">
+    <%= dynamic_translation('name') %>
+    <input class="form-control" disabled value="<%= @main_table.user.name %>"  >
+  </div>
+  <div class="col-lg-4">
+    <%= dynamic_translation('lastname') %>
+    <input class="form-control" disabled value="<%= @main_table.user.lastname %>"  >
+  </div>
+  <div class="col-lg-4">
+    <%= dynamic_translation('cellphone') %>
+    <input class="form-control" disabled value="<%= @main_table.user.cellphone %>"  >
+  </div>
+</div>
+
+<div class="field mt-3">
+  <%= dynamic_translation('active') %>
+  <input class="form-control" disabled value="<%= @main_table.active_status_text %>"  >
+</div>

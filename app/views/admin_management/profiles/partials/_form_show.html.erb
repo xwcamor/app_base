@@ -1,0 +1,36 @@
+<div class="field">
+  Nombre:
+  <input class="form-control" disabled value="<%= @main_table.name %>"  >
+</div>
+
+<div class="field mt-3">
+  Accesos:
+  <% @main_table.accesses.group_by(&:resource_name).each do |resource_name, accesses| %>
+    <div class="border p-2 mb-2">
+      <h5><%= resource_name %></h5>
+      <div class="row">
+        <% accesses.each_slice(4) do |access_group| %>
+          <div class="row mb-2">
+            <% access_group.each do |access| %>
+              <div class="col-md-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" disabled checked>
+                  <label class="form-check-label"><%= access.full_access_name %></label>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="field mt-3">
+  Imagen:
+  <% if @main_table.image.attached? %>
+    <%= image_tag @main_table.image, class: "img-fluid" %>
+  <% else %>
+    <p>No hay imagen adjunta</p>
+  <% end %>
+</div> 

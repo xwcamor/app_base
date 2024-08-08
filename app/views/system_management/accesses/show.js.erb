@@ -1,0 +1,13 @@
+// Show modal content
+$('#modal').html(
+  "<%= j render partial: @main_url + '/partials/modal_div', 
+      locals: { 
+        show_save_button:   false, 
+        show_delete_button: false, 
+        modal_title: t('standard.title_show') 
+      } 
+  %>"
+);
+
+// Display Modal
+$('#modal').modal('show');

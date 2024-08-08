@@ -1,0 +1,24 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.banner {
+    position: relative;
+    height: 70vh;
+}
+
+.carousel-item {
+    height: 70vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}

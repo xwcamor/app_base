@@ -1,0 +1,291 @@
+en:
+  # Standard Values
+  standard:
+        exit_btn:        "Exit"
+        exit_confirm:    "Are you sure you want to exit the application?"
+        lang_btn:        "Language"
+        btn_collapse:    "Show / Hide Content"
+        btn_search:      "Search"
+        btn_clear:       "Clear Filters"
+        input_required:  "Enter a value for"
+        input_optional:  "Optional value for"
+        btn_new:         "Add Record"
+        btn_excel:       "Export"
+        btn_show:        "Show"
+        btn_edit:        "Edit"
+        btn_delete:      "Delete"
+        btn_close:       "Close"
+        btn_save:        "Save"
+        btn_cancel:      "Cancel"
+        title_new:       "New"
+        title_show:      "Show"
+        title_edit:      "Edit"
+        title_delete:    "Delete"
+        title_cancel:    "Cancel"
+        msg_success:     "Success"
+        msg_error:       "Error"
+        msg_info:        "Information"
+        reason_delete:   "Reason for deletion"
+        reason_cancel:   "Reason for cancellation"
+        title_filter:    "Search Filters"
+        content_filter:  "Content of Search Filters"
+        title_result:    "Results Data"
+        content_result:  "Content of Data Results"
+        not_found:       "No data found"
+        pagination_text: "Total results"
+        index_actions:   "Actions"
+        confirmation:    "Are you sure?"
+        confirm_delete:  "Are you sure you want to delete?"
+        all:             "All"
+        select_option:   "Select Option"
+        active:          "Active"
+        blocked:         "Blocked"
+        maximum_two_decimals_message: "Please enter a number with up to two decimal places."
+
+  # Values for Settings
+  settings:
+        # Main Titles
+        title_plural:    "Settings"
+        title_singular:  "Setting"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        body_config:  "Body Configuration"
+        logo:         "Logo"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Languages
+  languages:
+        # Main Titles
+        title_plural:    "Languages"
+        title_singular:  "Language"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        locale:       "Locale"
+        flag:         "Flag"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Countries
+  countries:
+        # Main Titles
+        title_plural:    "Countries"
+        title_singular:  "Country"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        currency:     "Currency"
+        time_zone:    "Time Zone"
+        region:       "Region"
+        language_id:  "Language"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Accesses
+  accesses:
+        # Main Titles
+        title_plural:    "Accesses"
+        title_singular:  "Access"
+        # COLUMNS
+        id:              "#"
+        resource_name:   "Resource Name"
+        action_name:     "Action Name"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Profiles
+  profiles:
+        # Main Titles
+        title_plural:    "Profiles"
+        title_singular:  "Profile"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        description:  "Description"
+        accesses:     "Accesses"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Positions
+  accounts:
+        # Main Titles
+        title_plural:    "Accounts"
+        title_singular:  "Account"
+        # COLUMNS
+        id:           "#"
+        email:        "Email"
+        username:     "Username"
+        password:     "Password"
+        profile_id:   "Profile"
+        language_id:  "Language"
+        country_id:   "Country"
+        image:        "Image"
+        time_zone:    "Time Zone"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        name:         "Name"
+        lastname:     "Last Name"
+        cellphone:    "Cellphone"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Positions
+  positions:
+        # Main Titles
+        title_plural:    "Positions"
+        title_singular:  "Position"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Customers
+  customers:
+        # Main Titles
+        title_plural:    "Customers"
+        title_singular:  "Customer"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"        
+
+  # Values for Suppliers
+  suppliers:
+        # Main Titles
+        title_plural:    "Suppliers"
+        title_singular:  "Supplier"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Type Payments
+  type_payments:
+        # Main Titles
+        title_plural:    "Type Payments"
+        title_singular:  "Type Payment"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"        
+
+  # Values for Report Payments
+  report_payments:
+        # Main Titles
+        title_plural:    "Report Payments"
+        title_singular:  "Report Payment"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"                       
+
+  # Values for Products
+  products:
+        # Main Titles
+        title_plural:    "Products"
+        title_singular:  "Product"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        description:  "Description"
+        unit_price:   "Unit Price"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Employees
+  employees:
+        # Main Titles
+        title_plural:    "Employees"
+        title_singular:  "Employee"
+        # COLUMNS
+        id:           "#"
+        name:         "Name"
+        position_id:  "Position"
+        image:        "Image"
+        active:       "State"
+        deleted:      "Deleted"
+        deleted_description: "Deletion Description"
+        created_at:   "Created At"
+        updated_at:   "Updated At"
+
+  # Values for Sales
+  sales:
+        # Main Titles
+        title_plural:    "Sales"
+        title_singular:  "Sale"
+        # COLUMNS
+        id:                  "#"
+        date:                "Date of Sale"
+        employee_id:         "Employee"
+        customer_id:         "Customer"
+        type_payment_id:     "Type Payment"
+        report_payment_id:   "Report Payment"
+        account_id:          "Account"
+        active:              "State"
+        deleted:             "Deleted"
+        deleted_description: "Deletion Description"
+        cancel_description:  "Cancellation Description"
+        created_at:          "Created At"
+        updated_at:          "Updated At"        
+     
+  # Values for active record
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 Problem found"
+          other: "%{count} Problems found"
+        body:    "There were problems with the following fields:"
+      models:
+        position:
+          attributes:
+            name:
+              taken: "The name is already in use." 
+        type_payment:
+          attributes:
+            name:
+              taken: "The name is already in use."

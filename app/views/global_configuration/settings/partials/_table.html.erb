@@ -1,0 +1,16 @@
+<table class="table table-bordered table-hover" id="main-table">
+  <thead>
+    <tr>
+      <th>Nº</th>
+      <th>Nombre de la APP</th>
+      <th>Imagen</th>      
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="body-list">
+    <%= render partial: @main_url + '/partials/table_body', locals: { list_array: @list_array } %>
+  </tbody> 
+</table>
+
+<%= render :partial =>"layouts/datatable_plugin" %>

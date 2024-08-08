@@ -1,0 +1,29 @@
+<% if @main_table.errors.any? %>
+  $('#modal').html("<%= j render :partial => @main_url + '/partials/modal_div', locals: { show_save_button: true, show_delete_button: false } %>");
+  $('#main_modal').modal('show');
+  Swal.fire({
+    icon: 'error',
+    title: 'Error',
+    text: 'Errores al actualizar.'
+  });
+<% else %>
+  $('#main_modal').modal('hide');
+  setTimeout(function() {
+    $('body').removeClass('modal-open'); // Remover clase que evita scroll
+    $('.modal-backdrop').remove(); // Eliminar todos los backdrops
+    Swal.fire({
+      icon: 'success',
+      title: 'Actualizado',
+      text: 'Registro actualizado.',
+      timer: 1500, // Tiempo en milisegundos (1.5 segundos)
+      showConfirmButton: false
+    });
+  }, 500); // Tiempo para asegurar que la animación se complete
+
+  // Recargar la tabla DataTable
+  $.ajax({
+    url: '<%= @main_url %>', // Asegúrate de usar la URL correcta aquí
+    type: 'GET',
+    dataType: 'script'
+  });
+<% end %>

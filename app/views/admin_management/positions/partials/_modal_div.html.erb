@@ -1,0 +1,34 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"><%= dynamic_translation('title_singular') %> - <%= modal_title %></h5>
+      <%= link_to "", class: "btn btn-close", data: { bs_dismiss: "modal" } do %>
+      <i class="fas fa-times"></i>  
+      <% end %>  
+    </div>
+    <div class="modal-body">
+      <%= render :partial => @main_url + "/partials/" + @main_form,
+      locals: { main_table: @main_table } %>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <!-- Button for new, edit -->
+      <% if show_save_button %>
+      <%= button_tag(type: 'submit', class: "btn bg-olive", form: 'main_form') do %>
+      <i class="fas fa-save"></i> <%= t('standard.btn_save') %>
+      <% end %>
+      <% end %>
+
+      <!-- Button for delete -->
+      <% if show_delete_button %>
+      <%= button_tag(type: 'submit', class: "btn bg-danger", form: 'main_form', 'data-confirm' => t('standard.confirm_delete'  ) ) do %>
+      <i class="fas fa-trash"></i> <%= t('standard.btn_delete') %>
+      <% end %>
+      <% end %>
+      
+      <!-- Button for close -->
+      <%= link_to "", class: "btn btn-secondary btn-close-form", data: { bs_dismiss: "modal" } do %>
+      <i class="fas fa-times"></i> <%= t('standard.btn_close') %>
+      <% end %>  
+    </div>         
+  </div>
+</div> 

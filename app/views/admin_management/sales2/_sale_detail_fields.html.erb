@@ -1,0 +1,30 @@
+<tr class="nested-fields">
+  <td>
+    <%= f.select :product_id, options_for_select([["Seleccione", ""]] + @list_products.map { |p| [p.name, p.id, { data: { price: p.unit_price } } ] }, f.object.product_id), {}, { class: "form-control product-select" } %>
+  </td>
+
+  <td>
+    <%= f.number_field :quantity, value: f.object.quantity || 1, min: 1, class: "form-control quantity-field" %>
+  </td>
+
+  <td>
+    <input class="form-control unit-price" disabled value="<%= f.object.product.present? ? number_to_currency(f.object.product.unit_price, unit: "") : "0.00" %>">
+  </td>
+
+  <td>
+    <%= f.number_field :discount, value: f.object.discount || 0, min: 0, max: 100, class: "form-control discount-field", placeholder: "0" %>
+  </td>
+
+  <td>
+    <input class="form-control total-price" disabled value="<%= f.object.product.present? ? number_to_currency(f.object.quantity * f.object.product.unit_price, unit: "") : "0.00" %>">
+  </td>
+
+  <td>
+    <%#= link_to_remove_association "x", f, class: "btn btn-danger btn-sm remove-product" %>
+
+    <%= link_to_remove_association  f, class: "btn bg-danger btn-sm remove-product" do %>
+  <i class="fas fa-times"></i>
+<% end %>
+
+  </td>
+</tr>

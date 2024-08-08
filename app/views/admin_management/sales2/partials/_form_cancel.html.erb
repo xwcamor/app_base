@@ -1,0 +1,56 @@
+<%= form_with(model: @main_table, url: "#{@main_url}/#{@main_table.id}" , method: :put, local: false, html: { id: 'main_form', data: { parsley_validate: true } }) do |form| %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        Cliente:
+        <input class="form-control" disabled value="<%= @main_table.customer.name %>"  >
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        Empleado:
+        <input class="form-control" disabled value="<%= @main_table.employee.name %>"  >
+      </div>
+    </div>  
+    <div class="col-md-3">
+      <div class="form-group">
+        T.Pago:
+        <input class="form-control" disabled value="<%= @main_table.type_payment.name %>"  >
+      </div>
+    </div>  
+    <div class="col-md-3">
+      <div class="form-group">
+        R.Pago:
+        <input class="form-control" disabled value="<%= @main_table.report_payment.name %>"  >
+      </div>
+    </div>      
+  </div>
+
+  <div class="field mt-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio (S/.)</th>
+          <th>Descuento (S/.)</th>
+          <th>Sub Total (S/.)</th>       
+        </tr>
+      </thead>
+      <tbody id="product-fields">
+        <%= form.fields_for :sale_details do |detail_form| %>
+          <%= render 'sale_detail_fields_show', f: detail_form %>
+        <% end %>
+      </tbody>
+      <tr><td colspan="4" class="text-right"><b>Total (S/.)</b></td><td><input id="total-amount" class="form-control"disabled></td></tr>
+    </table>
+  </div>
+
+  <div class="field mt-3">
+    Camcelar Vemta:
+    <%= form.text_area :cancel_description, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control" , rows: 3 %>
+    <%= form.hidden_field :active, :value => false %>
+  </div> 
+  
+<% end %>

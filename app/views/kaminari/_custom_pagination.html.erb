@@ -1,0 +1,37 @@
+<%# app/views/kaminari/_custom_pagination.html.erb %>
+<%# Este archivo debe contener el HTML personalizado para los botones de paginación %>
+
+<%# Adaptar este código al estilo de Bootstrap %>
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <% if @current_page > 1 %>
+      <li class="page-item">
+        <%= link_to raw(t 'views.pagination.first'), url_for_page(1), class: 'page-link bg-light' %>
+      </li>
+      <li class="page-item">
+        <%= link_to raw(t 'views.pagination.previous'), url_for_page(@current_page - 1), class: 'page-link bg-light' %>
+      </li>
+    <% end %>
+
+    <% @window_pages.each do |page| %>
+      <% if page %>
+        <li class="page-item <%= 'active' if page == @current_page %>">
+          <%= link_to page, url_for_page(page), class: 'page-link bg-light' %>
+        </li>
+      <% else %>
+        <li class="page-item disabled">
+          <span class="page-link bg-light">...</span>
+        </li>
+      <% end %>
+    <% end %>
+
+    <% if @current_page < @total_pages %>
+      <li class="page-item">
+        <%= link_to raw(t 'views.pagination.next'), url_for_page(@current_page + 1), class: 'page-link bg-light' %>
+      </li>
+      <li class="page-item">
+        <%= link_to raw(t 'views.pagination.last'), url_for_page(@total_pages), class: 'page-link bg-light' %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

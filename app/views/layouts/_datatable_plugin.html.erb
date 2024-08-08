@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/datatables/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/datatables_responsive/css/responsive.dataTables.min.css">
+
+<script src="/AdminLTE-3.2.0/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/AdminLTE-3.2.0/plugins/datatables_responsive/js/dataTables.responsive.min.js"></script>
+
+<script>
+  $('#main-table').DataTable({
+    language: {
+        emptyTable: '<%= t("standard.not_found") %>'
+    },
+
+    paging: false,
+    searching: false,
+    info: false,
+    ordering: false,
+    responsive: true
+
+  });
+</script> 

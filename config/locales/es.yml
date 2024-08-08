@@ -1,0 +1,292 @@
+es:
+  # Valores Estándar
+  standard:
+        exit_btn:        "Salir"
+        exit_confirm:    "¿Está seguro de que desea salir de la aplicación?"
+        lang_btn:        "Idioma"
+        btn_collapse:    "Mostrar / Ocultar Contenido"
+        btn_search:      "Buscar"
+        btn_clear:       "Limpiar Filtros"
+        input_required:  "Ingrese un valor para"
+        input_optional:  "Valor opcional para"
+        btn_new:         "Agregar Registro"
+        btn_excel:       "Exportar"
+        btn_show:        "Mostrar"
+        btn_edit:        "Editar"
+        btn_delete:      "Eliminar"
+        btn_close:       "Cerrar"
+        btn_save:        "Guardar"
+        btn_cancel:      "Cancelar"
+        title_new:       "Nuevo"
+        title_show:      "Mostrar"
+        title_edit:      "Editar"
+        title_delete:    "Eliminar"
+        title_cancel:    "Cancelar"
+        msg_success:     "Éxito"
+        msg_error:       "Error"
+        msg_info:        "Información"
+        reason_delete:   "Razón para eliminar"
+        reason_cancel:   "Razón para cancelar"
+        title_filter:    "Filtros de Búsqueda"
+        content_filter:  "Contenido de los Filtros de Búsqueda"
+        title_result:    "Datos de Resultados"
+        content_result:  "Contenido de los Datos de Resultados"
+        not_found:       "No se encontraron datos"
+        pagination_text: "Resultados totales"
+        index_actions:   "Acciones"
+        confirmation:    "¿Está seguro?"
+        confirm_delete:  "¿Está seguro de que desea eliminar?"
+        all:             "Todos"
+        select_option:   "Seleccione una Opción"
+        active:          "Activo"
+        blocked:         "Bloqueado"
+        maximum_two_decimals_message: "Por favor, ingrese un número con un máximo de dos decimales."
+
+  # Valores para Configuración
+  settings:
+        # Títulos Principales
+        title_plural:    "Configuraciones"
+        title_singular:  "Configuración"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        body_config:  "Configuración del Cuerpo"
+        logo:         "Logo"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Idiomas
+  languages:
+        # Títulos Principales
+        title_plural:    "Idiomas"
+        title_singular:  "Idioma"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        locale:       "Localización"
+        flag:         "Bandera"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Países
+  countries:
+        # Títulos Principales
+        title_plural:    "Países"
+        title_singular:  "País"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        currency:     "Moneda"
+        time_zone:    "Zona Horaria"
+        region:       "Región"
+        language_id:  "Idioma"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Accesos
+  accesses:
+        # Títulos Principales
+        title_plural:    "Accesos"
+        title_singular:  "Acceso"
+        # COLUMNAS
+        id:              "#"
+        resource_name:   "Nombre del Recurso"
+        action_name:     "Nombre de la Acción"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Perfiles
+  profiles:
+        # Títulos Principales
+        title_plural:    "Perfiles"
+        title_singular:  "Perfil"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        description:  "Descripción"
+        accesses:     "Accesos"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Cuentas
+  accounts:
+        # Títulos Principales
+        title_plural:    "Cuentas"
+        title_singular:  "Cuenta"
+        # COLUMNAS
+        id:           "#"
+        email:        "Correo Electrónico"
+        username:     "Nombre de Usuario"
+        password:     "Contraseña"
+        profile_id:   "Perfil"
+        language_id:  "Idioma"
+        country_id:   "País"
+        image:        "Imagen"
+        time_zone:    "Zona Horaria"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        name:         "Nombre"
+        lastname:     "Apellido"
+        cellphone:    "Teléfono Móvil"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Puestos
+  positions:
+        # Títulos Principales
+        title_plural:    "Puestos"
+        title_singular:  "Puesto"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Clientes
+  customers:
+        # Títulos Principales
+        title_plural:    "Clientes"
+        title_singular:  "Cliente"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Proveedores
+  suppliers:
+        # Títulos Principales
+        title_plural:    "Proveedores"
+        title_singular:  "Proveedor"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Tipos de Pagos
+  type_payments:
+        # Títulos Principales
+        title_plural:    "Tipos de Pagos"
+        title_singular:  "Tipo de Pago"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Reportes de Pagos
+  report_payments:
+        # Títulos Principales
+        title_plural:    "Reportes de Pagos"
+        title_singular:  "Reporte de Pago"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Productos
+  products:
+        # Títulos Principales
+        title_plural:    "Productos"
+        title_singular:  "Producto"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        description:  "Descripción"
+        unit_price:   "Precio Unitario"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Empleados
+  employees:
+        # Títulos Principales
+        title_plural:    "Empleados"
+        title_singular:  "Empleado"
+        # COLUMNAS
+        id:           "#"
+        name:         "Nombre"
+        position_id:  "Puesto"
+        image:        "Imagen"
+        active:       "Estado"
+        deleted:      "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        created_at:   "Creado el"
+        updated_at:   "Actualizado el"
+
+  # Valores para Ventas
+  sales:
+        # Títulos Principales
+        title_plural:    "Ventas"
+        title_singular:  "Venta"
+        # COLUMNAS
+        id:                  "#"
+        date:                "Fecha de la Venta"
+        employee_id:         "Empleado"
+        customer_id:         "Cliente"
+        type_payment_id:     "Tipo de Pago"
+        report_payment_id:   "Reporte de Pago"
+        account_id:          "Cuenta"
+        active:              "Estado"
+        deleted:             "Eliminado"
+        deleted_description: "Descripción de la Eliminación"
+        cancel_description:  "Descripción de la Cancelación"
+        created_at:          "Creado el"
+        updated_at:          "Actualizado el"
+
+  # Valores para active record
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 problema encontrado"
+          other: "%{count} problemas encontrados"
+        body:    "Hubo problemas con los siguientes campos:"
+      models:
+        position:
+          attributes:
+            name:
+              taken: "El nombre ya está en uso."
+        type_payment:
+          attributes:
+            name:
+              taken: "El nombre ya está en uso."
+

@@ -1,0 +1,105 @@
+<%= form_with(
+  model:  @main_table, 
+  url:    @main_table.persisted? ? "#{@main_url}/#{@main_table.id}" : @main_url,
+  method: @main_table.persisted? ? :patch : :post, 
+  local:  false, 
+  html: { id: 'main_form',
+          autocomplete: 'off', 
+          data: { parsley_validate: true }
+        }
+  ) do |form| %>
+
+  <% if @main_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('activerecord.errors.template.header', count: @main_table.errors.count) %></h2>
+      <ul>
+        <% @main_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= dynamic_translation('customer_id') %>
+        <%= form.select :profile_id, @list_customers.collect { |a| [a.name, a.id] }, { include_blank: t('standard.select_option') }, { required: true, data: { parsley_required: "true" }, class: "form-control"} %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= dynamic_translation('employee_id') %> 
+        <%= form.select :employee_id, @list_employees.collect { |a| [a.name, a.id] }, { include_blank: t('standard.select_option') }, { required: true, data: { parsley_required: "true" }, class: "form-control"} %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= dynamic_translation('type_payment_id') %>
+        <%= form.select :type_payment_id, @list_type_payments.collect { |a| [a.name, a.id] }, { include_blank: t('standard.select_option') }, { required: true, data: { parsley_required: "true" }, class: "form-control"} %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= dynamic_translation('report_payment_id') %>
+        <%= form.select :report_payment_id, @list_report_payments.collect { |a| [a.name, a.id] }, { include_blank: t('standard.select_option') }, { required: true, data: { parsley_required: "true" }, class: "form-control"} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-lg-12">
+
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Producto
+              <%= link_to_add_association form, :sale_details, class: "btn btn-dark btn-xs", data: { association_insertion_node: '#product-fields', association_insertion_method: :append } do %>
+                <i class="fas fa-plus"></i>
+              <% end %>
+            </th>
+            <th>Cantidad</th>
+            <th>Precio (S/.)</th>
+            <th>Descuento (S/.)</th>
+            <th>Sub Total (S/.)</th>  
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="product-fields">
+          <%= form.fields_for :sale_details do |detail_form| %>
+            <%= render 'sale_detail_fields', f: detail_form %>
+          <% end %>
+        </tbody>
+        <tr><td colspan="4" class="text-right"><b>Total (S/.)</b></td><td><input id="total-amount" class="form-control" disabled></td></tr>
+      </table> 
+    </div>
+    <div class="col-lg-4">
+      <%#= dynamic_translation('country_id') %>
+      <%#= form.select :country_id, grouped_options_for_select(@grouped_countries, @main_table.country_id), { include_blank: t('standard.select_option') }, { required: true, data: { parsley_required: "true" }, class: "form-control", id: 'country_id' } %>
+      <%#= form.hidden_field :language_id, id: 'language_id' %>
+    </div>
+    <div class="col-lg-4">
+      <%#= dynamic_translation('time_zone') %>
+      <%#= form.time_zone_select :time_zone, nil, { include_blank: t('standard.select_option'), selected: @main_table.time_zone }, { required: true, data: { parsley_required: "true" }, class: "form-control" } %>
+    </div>
+  </div>
+
+  <%#= form.fields_for :user do |user_form| %>
+  <div class="row mt-3">
+    <div class="col-lg-4">
+      <%#= dynamic_translation('name') %>
+      <%#= user_form.text_field :name, required: true, data: { parsley_required: "true", parsley_minlength: "3" }, class: "form-control", placeholder: "#{t('standard.input_required')} #{t("#{controller_name}.name")}" %>
+    </div>
+   
+  </div>  
+  <%# end %>
+
+  <% if @main_table.persisted? %>
+  <div class="form-check form-switch form-switch-custom form-switch-success form-check-inline mt-3">
+    <%= form.check_box :active, class: "form-check-input" %>
+    <label class="form-check-label"><%= dynamic_translation('active') %></label>
+  </div>
+  <% end %> 
+  
+<% end %> 

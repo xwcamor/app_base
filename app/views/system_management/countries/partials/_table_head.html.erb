@@ -1,0 +1,19 @@
+<tr>
+
+  <th><%= sort_link(@query, :name, dynamic_translation('id'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :name, dynamic_translation('name'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :currency, dynamic_translation('currency'), { class: "text-dark" }) %></th>
+  
+  <th><%= sort_link(@query, :time_zone, dynamic_translation('time_zone'), { class: "text-dark" }) %></th>
+
+  <th><%= sort_link(@query, :region, dynamic_translation('region'), { class: "text-dark" }) %></th>
+
+  <th><%= sort_link(@query, :language_id, dynamic_translation('language_id'), { class: "text-dark" }) %></th>
+
+  <th><%= sort_link(@query, :active, dynamic_translation('active'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :active, t('standard.index_actions'), { class: "text-dark" }) %></th>
+
+</tr>

@@ -1,0 +1,18 @@
+<div class="field">
+  Nombre:
+  <input class="form-control" disabled value="<%= @main_table.app_system_name %>"  >
+</div>
+
+<div class="field mt-3">
+  Body Config:
+  <input class="form-control" disabled value="<%= @main_table.app_system_body_config %>"  >
+</div>
+
+<div class="field mt-3">
+  Imagen:
+  <% if @main_table.app_system_logo.present? %>
+    <%= image_tag @main_table.app_system_logo_url, class: "img-fluid" %>
+  <% else %>
+    <p>No hay imagen adjunta</p>
+  <% end %>
+</div> 

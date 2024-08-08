@@ -1,0 +1,10 @@
+// Actualiza el contenido del modal
+$('#modal').html("<%= j render :partial => @main_url + '/partials/modal_div', locals: { show_save_button: true, show_delete_button: false, show_cancel_button: false } %>");
+
+// Muestra el modal
+$('#main_modal').modal('show');
+
+// Inicializa Select2 y Parsley.js para los nuevos elementos en el modal
+$('#main_modal').on('shown.bs.modal', function () {
+  initializeModalComponents();
+});

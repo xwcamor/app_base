@@ -1,0 +1,11 @@
+<tr>
+
+  <th><%= sort_link(@query, :resource_name, dynamic_translation('id'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :resource_name, dynamic_translation('resource_name'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :action_name, dynamic_translation('action_name'), { class: "text-dark" }) %></th>
+ 
+  <th><%= sort_link(@query, :resource_name, t('standard.index_actions'), { class: "text-dark" }) %></th>
+
+</tr>

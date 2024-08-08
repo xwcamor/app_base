@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APP | <%= dynamic_title %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%#= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js' %>
+ 
+  <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag 'application' %>
+
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/google_fonts/css/style.css" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+
+  <!-- Flags -->
+  <link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/flag-icon-css/css/flag-icons.min.css">
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/AdminLTE-3.2.0/stylesheets/adminlte.min.css">
+
+  <script>
+    var userLanguage = "<%= I18n.locale %>";
+  </script>
+
+</head>
+<body class="<%= @body_config %>"> 
+<div class="wrapper">
+  
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-dark bg-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" role="button" title="<%= t('standard.btn_collapse') %>"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Menu Fullscreen-->
+      <li class="nav-item" style="display: none">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li> 
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="<%= t('standard.lang_btn') %>">
+          <i class="fas fa-globe"></i> 
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+          <%= language_selector %>
+        </div>
+      </li>
+
+      <!-- Menu Flag Icon-->
+      <li class="nav-item" >
+        <a class="nav-link">
+          <span class="flag-icon flag-icon-<%= session[:flag] %>" title="<%= t('standard.lang_btn') %>"></span>
+        </a> 
+      </li> 
+
+      <!-- Menu Logout-->
+      <li class="nav-item">
+        <%= link_to destroy_account_session_path, method: :delete, class: "nav-link logout-btn",:role=>"button", 'data-confirm' => t('standard.exit_confirm'), title: t('standard.exit_btn') do %>
+          <i class="fas fa-sign-out-alt"></i> 
+        <% end %>        
+      </li>      
+    </ul>    
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-maroon elevation-4">
+    <!-- Brand Logo -->
+    <a   class="brand-link">
+      <% if @app_logo.present? %>
+        <%= image_tag @app_logo, class: "brand-image img-circlex elevation-3", alt: "AdminLTE2 Logo", style: "opacity: .8" %>
+      <% else %>
+        <img src="/AdminLTE-3.2.0/images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <% end %>  
+
+      <span class="brand-text font-weight-light"><%= @app_name %></span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <%# if current_account.image.attached? %>
+            <%#= image_tag current_account.image, class: "img-circle elevation-2", alt: "User Image" %>
+          <%# else %>
+            <img src="/AdminLTE-3.2.0/images/avatar5.png" class="img-circle elevation-2" alt="User Image">
+          <%# end %>
+        </div>
+        <div class="info">
+          <a  class="d-block"><%= current_account.user.full_name %></a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+          <%= render 'layouts/sidebar_menu_items' %>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= dynamic_title %></h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <%= yield %>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-inline">
+       
+    </div>
+    <strong>&copy; 2024.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/AdminLTE-3.2.0/javascripts/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="/AdminLTE-3.2.0/javascripts/bootstrap.bundle.min.js"></script>
+
+  <!-- pace-progress -->
+  <!-- <link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/pace-progress/themes/red/pace-theme-flash.css"> -->
+
+
+  <!-- pace-progress -->
+<!-- <script src="/AdminLTE-3.2.0/plugins/pace-progress/pace.min.js"></script>
+ -->
+<!-- AdminLTE App -->
+<script src="/AdminLTE-3.2.0/javascripts/adminlte.min.js"></script>
+
+<!-- Main application script --> 
+<%= render partial: "layouts/parsley_plugin" %>
+<%= render partial: "layouts/sweetalert2_plugin" %>
+<%= render partial: "layouts/select2_plugin" %>
+</body>
+</html>

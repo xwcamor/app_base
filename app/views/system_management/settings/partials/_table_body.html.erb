@@ -1,0 +1,40 @@
+<% @list_array.each_with_index do |array,index| %>
+<tr id="fila-<%= array.id %>">
+
+  <td><%= index + 1 + ((@list_array.current_page - 1) * @list_array.limit_value) %></td>
+
+  <td><%= array.name %></td>
+
+  <td>
+    <% if array.logo.present? %>
+      <%= image_tag array.logo_url, class: "small-img" %>
+    <% end %>
+  </td>
+  
+  <td><%= array.body_config %></td>
+
+  <td><%= array.active_status %></td>
+
+  <td>
+    <% if @permissions[@param_model.to_s.camelize]&.include?('show') %>
+      <a class="btn bg-info btn-sm" data-remote="true" href="<%= @main_url %>/<%= array.id %>" title="<%= t('standard.btn_show') %>">
+        <i class="fas fa-eye"></i>  
+      </a>
+    <% end %>
+
+    <% if @permissions[@param_model.to_s.camelize]&.include?('edit') %>
+      <a class="btn btn-warning btn-sm text-white" data-remote="true" href="<%= @main_url %>/<%= array.id %>/edit" title="<%= t('standard.btn_edit') %>">
+        <i class="fas fa-pencil-alt"></i>  
+      </a>
+    <% end %>
+    
+    <!--  
+    <%# if @permissions[@param_model.to_s.camelize]&.include?('delete') %>
+      <a class="btn bg-danger btn-sm" data-remote="true" href="<%#= @main_url %>/<%= array.id %>/delete" title="<%#= t('standard.btn_delete') %>">
+        <i class="fas fa-trash"></i>  
+      </a>
+    <%# end %>
+    -->
+  </td>
+</tr>
+<% end %>

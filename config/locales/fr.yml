@@ -1,0 +1,212 @@
+fr:
+  # Valeurs standard
+  standard:
+        exit_btn:        "Sortir"
+        exit_confirm:    "Êtes-vous sûr de vouloir quitter l'application ?"
+        lang_btn:        "Langue"
+        btn_collapse:    "Afficher / Masquer le contenu"
+        btn_search:      "Chercher"
+        btn_clear:       "Effacer les filtres"
+        input_required:  "Entrer une valeur pour"
+        input_optional:  "Valeur optionnelle pour"
+        btn_new:         "Ajouter un enregistrement"
+        btn_excel:       "Exporter"
+        btn_show:        "Afficher"
+        btn_edit:        "Modifier"
+        btn_delete:      "Supprimer"
+        btn_close:       "Fermer"
+        btn_save:        "Sauvegarder"
+        btn_cancel:      "Annuler"
+        title_new:       "Nouveau"
+        title_show:      "Afficher"
+        title_edit:      "Modifier"
+        title_delete:    "Supprimer"
+        title_cancel:    "Annuler"
+        msg_success:     "Succès"
+        msg_error:       "Erreur"
+        msg_info:        "Information"
+        reason_delete:   "Raison de la suppression"
+        reason_cancel:   "Raison de l'annulation"
+        title_filter:    "Filtres de recherche"
+        content_filter:  "Contenu des filtres de recherche"
+        title_result:    "Données des résultats"
+        content_result:  "Contenu des résultats"
+        not_found:       "Aucune donnée trouvée"
+        pagination_text: "Total des résultats"
+        index_actions:   "Actions"
+        confirmation:    "Êtes-vous sûr ?"
+        confirm_delete:  "Êtes-vous sûr de vouloir supprimer ?"
+        all:             "Tous"
+        select_option:   "Sélectionner une option"
+        active:          "Actif"
+        blocked:         "Bloqué"
+        maximum_two_decimals_message: "Veuillez entrer un nombre valide avec un maximum de deux décimales."
+  # Valeurs pour les comptes
+  accounts:
+        # Titres principaux
+        title_plural:    "Comptes"
+        title_singular:  "Compte"
+        # COLONNES
+        id:           "#"
+        email:        "E-mail"
+        username:     "Nom d'utilisateur"
+        password:     "Mot de passe"
+        profile_id:   "Profil"
+        language_id:  "Langue"
+        country_id:   "Pays"
+        image:        "Image"
+        time_zone:    "Fuseau horaire"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        name:         "Nom"
+        lastname:     "Nom de famille"
+        cellphone:    "Téléphone portable"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"
+
+  # Valeurs pour les postes
+  positions:
+        # Titres principaux
+        title_plural:    "Postes"
+        title_singular:  "Poste"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"
+
+  # Valeurs pour les clients
+  customers:
+        # Titres principaux
+        title_plural:    "Clients"
+        title_singular:  "Client"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"        
+
+  # Valeurs pour les fournisseurs
+  suppliers:
+        # Titres principaux
+        title_plural:    "Fournisseurs"
+        title_singular:  "Fournisseur"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"
+
+  # Valeurs pour les types de paiements
+  type_payments:
+        # Titres principaux
+        title_plural:    "Types de paiements"
+        title_singular:  "Type de paiement"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"        
+
+  # Valeurs pour les rapports de paiements
+  report_payments:
+        # Titres principaux
+        title_plural:    "Rapports de paiements"
+        title_singular:  "Rapport de paiement"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"                       
+
+  # Valeurs pour les produits
+  products:
+        # Titres principaux
+        title_plural:    "Produits"
+        title_singular:  "Produit"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        description:  "Description"
+        unit_price:   "Prix unitaire"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"
+
+  # Valeurs pour les employés
+  employees:
+        # Titres principaux
+        title_plural:    "Employés"
+        title_singular:  "Employé"
+        # COLONNES
+        id:           "#"
+        name:         "Nom"
+        position_id:  "Poste"
+        image:        "Image"
+        active:       "État"
+        deleted:      "Supprimé"
+        deleted_description: "Description de la suppression"
+        created_at:   "Créé le"
+        updated_at:   "Mis à jour le"
+
+  # Valeurs pour les ventes
+  sales:
+        # Titres principaux
+        title_plural:    "Ventes"
+        title_singular:  "Vente"
+        # COLONNES
+        id:                  "#"
+        date:                "Date de vente"
+        employee_id:         "Employé"
+        customer_id:         "Client"
+        type_payment_id:     "Type de paiement"
+        report_payment_id:   "Rapport de paiement"
+        account_id:          "Compte"
+        active:              "État"
+        deleted:             "Supprimé"
+        deleted_description: "Description de la suppression"
+        cancel_description:  "Description de l'annulation"
+        created_at:          "Créé le"
+        updated_at:          "Mis à jour le"        
+     
+  # Valeurs pour active record
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 problème trouvé"
+          other: "%{count} problèmes trouvés"
+        body:    "Il y a eu des problèmes avec les champs suivants :"
+      models:
+        position:
+          attributes:
+            name:
+              taken: "Le nom est déjà utilisé." 
+        type_payment:
+          attributes:
+            name:
+              taken: "Le nom est déjà utilisé."               
